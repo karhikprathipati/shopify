@@ -1,6 +1,7 @@
 package com.shopify.karthik.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,13 @@ public class CategoryService {
 
 	public List<Category> getAllCategories() {
 		return categoryRepository.findAll();
+	}
+
+	public void removeCategoryById(int id){
+		categoryRepository.deleteById(id);
+	}
+
+	public Optional<Category> updateById(int id) {
+		return categoryRepository.findById(id);
 	}
 }

@@ -1,22 +1,24 @@
 package com.shopify.karthik.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
 
-import lombok.Data;
+import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
 public class Category {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "category_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="category_id")
 	private int id;
 
 	private String name;
+
+	public Category() {
+	}
+
+	protected boolean canEqual(final Object other) {
+		return other instanceof Category;
+	}
 
 }
